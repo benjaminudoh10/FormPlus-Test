@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather App</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/country_code.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    </head>
+    <body class="bg-weather">
+        <img src="/static/img/bg.png" class="img-responsive">
+
+        <div class="container">
+            <div class="row" id="notification">
+                <div class="col-md-8">
+                    <div class="alert alert-success">
+                        <a href="#" onclick="javascript: $(this).parent().hide()" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong id="notif"></strong>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+
+        <div class="container weather-info">
+            <div class="row">
+                <div class="container">
+                    <div class="col-md-8" id="weather-main">
+                        <div class="text-center weather-main-text">
+                            <h1>Would you like to see the weather condition in your current location?</h1>
+                            <button class="btn btn-success btn-lg btn-main" onclick="cls_loc()">Continue</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4" id="weather-initial">
+                        <div class="row">
+                            <div class="col-md-12 weather-initial-list">
+                                {% for item in result %}
+                                    <div class="col-md-2">
+                                        
+                                    </div>
+                                    <div class="col-md-10 text-primary">
+                                        <h3>{{ item['name'] }}</h3>
+                                        <p>{{ item['weather'][0]['description'] }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
