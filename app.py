@@ -6,8 +6,6 @@ import json
 
 app = Flask(__name__)
 
-# cache = Cache(app, config={'CACHE_TYPE': 'simple'})
-
 
 @app.route('/')
 def index():
