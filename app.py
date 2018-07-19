@@ -6,10 +6,6 @@ import json
 
 app = Flask(__name__)
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 1bc3e616ba3153f6ab8da7196bf7fdd81fa19779
 @app.route('/')
 def index():
     cities = ['Ajah', 'Victoria Island', 'Apapa', 'Epe', 'Maryland']
